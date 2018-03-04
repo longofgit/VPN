@@ -1,0 +1,77 @@
+//安装（基于CentOS）
+yum install -y ppp
+yum install -y openswan 
+yum install -y xl2tpd 
+vi /etc/ipsec.conf
+config setup
+nat_traversal=yes
+virtual_private=%v4:10.0.0.0/8,%v4:192.168.0.0/16,%v4:172.16.0.0/12
+oe=off
+protostack=netkey
+conn L2TP-PSK-NAT
+rightsubnet=vhost:%priv
+also=L2TP-PSK-noNAT
+conn L2TP-PSK-noNAT
+authby=secret
+pfs=no
+auto=add
+keyingtries=3
+rekey=no
+dpddelay=30
+dpdtimeout=120
+dpdaction=clear
+ikelifetime=8h
+keylife=1h
+type=transport
+left=x.x.x.x(出口公网IP) 
+leftprotoport=17/%any
+right=%any
+rightprotoport=17/%any
+forceencaps=yes
+vi /etc/ipsec.secrets
+x.x.x.x(出口公网IP)  %any:  PSK "longof"
+
+vi /etc/xl2tpd/xl2tpd.conf
+vi /etc/ppp/options.xl2tpd
+
+vi /etc/ppp/chap-secrets
+# Secrets for authentication using CHAP
+# client        server  secret                  IP addresses
+   x               *           x                  *
+
+
+//ipatbles放行配置1
+iptables -t nat -A POSTROUTING -s x.x.x.x/X（内网网段） -o ethX -j MASQUERADE
+// 例子：iptables -t nat -A POSTROUTING -s 10.26.148.0/23 -o eth1 -j MASQUERADE
+
+//iptables放行配置2
+#Allow ipsec traffic
+iptables -A INPUT -m policy --dir in --pol ipsec -j ACCEPT
+iptables -A FORWARD -m policy --dir in --pol ipsec -j ACCEPT
+#Do not NAT VPN traffic
+iptables -t nat -A POSTROUTING -m policy --dir out --pol none -j MASQUERADE
+#Forwarding rules for VPN
+iptables -A FORWARD -i ppp+ -p all -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
+iptables -A FORWARD -m state --state RELATED,ESTABLISHED -j ACCEPT
+#Ports for Openswan / xl2tpd
+iptables -A INPUT -m policy --dir in --pol ipsec -p udp --dport 1701 -j ACCEPT
+iptables -A INPUT -p udp --dport 500 -j ACCEPT
+iptables -A INPUT -p udp --dport 4500 -j ACCEPT
+
+//iptables放行配置3
+echo 1 > /proc/sys/net/ipv4/ip_forward
+iptables -t nat -A POSTROUTING -o ethX  -j MASQUERADE
+iptables -t nat -A POSTROUTING -o ethX  -j SNAT --to-source x.x.x.x(出口公网IP) 
+
+
+//服务保存和开机启动
+service iptables save  
+chkconfig iptables on
+chkconfig ipsec on
+chkconfig xl2tpd on
+service iptables restart
+service ipsec restart
+service xl2tpd restart
+
+//debug排障
+# tail -f /var/log/messages
