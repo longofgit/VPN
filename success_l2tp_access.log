@@ -1,0 +1,52 @@
+#tail -f /var/log/syslog
+
+Apr 16 05:07:39 iZj6c80ru630hv1fh6ng5cZ xl2tpd[2049]: check_control: Received out of order control packet on tunnel 8 (got 2, expected 1)
+Apr 16 05:07:39 iZj6c80ru630hv1fh6ng5cZ xl2tpd[2049]: handle_packet: bad control packet!
+Apr 16 05:07:39 iZj6c80ru630hv1fh6ng5cZ xl2tpd[2049]: Connection established to 58.100.73.47, 57671.  Local: 21536, Remote: 8 (ref=0/0).  LNS session is 'default'
+Apr 16 05:07:40 iZj6c80ru630hv1fh6ng5cZ xl2tpd[2049]: start_pppd: I'm running: 
+Apr 16 05:07:40 iZj6c80ru630hv1fh6ng5cZ xl2tpd[2049]: "/usr/sbin/pppd" 
+Apr 16 05:07:40 iZj6c80ru630hv1fh6ng5cZ xl2tpd[2049]: "passive" 
+Apr 16 05:07:40 iZj6c80ru630hv1fh6ng5cZ xl2tpd[2049]: "nodetach" 
+Apr 16 05:07:40 iZj6c80ru630hv1fh6ng5cZ xl2tpd[2049]: "10.26.148.139:10.26.148.140" 
+Apr 16 05:07:40 iZj6c80ru630hv1fh6ng5cZ xl2tpd[2049]: "refuse-pap" 
+Apr 16 05:07:40 iZj6c80ru630hv1fh6ng5cZ xl2tpd[2049]: "auth" 
+Apr 16 05:07:40 iZj6c80ru630hv1fh6ng5cZ xl2tpd[2049]: "require-chap" 
+Apr 16 05:07:40 iZj6c80ru630hv1fh6ng5cZ xl2tpd[2049]: "debug" 
+Apr 16 05:07:40 iZj6c80ru630hv1fh6ng5cZ xl2tpd[2049]: "file" 
+Apr 16 05:07:40 iZj6c80ru630hv1fh6ng5cZ xl2tpd[2049]: "/etc/ppp/options.xl2tpd" 
+Apr 16 05:07:40 iZj6c80ru630hv1fh6ng5cZ xl2tpd[2049]: "/dev/pts/1" 
+Apr 16 05:07:40 iZj6c80ru630hv1fh6ng5cZ xl2tpd[2049]: Call established with 58.100.73.47, Local: 1357, Remote: 49401, Serial: 1
+Apr 16 05:07:40 iZj6c80ru630hv1fh6ng5cZ pppd[2109]: pppd 2.4.5 started by root, uid 0
+Apr 16 05:07:40 iZj6c80ru630hv1fh6ng5cZ pppd[2109]: using channel 39
+Apr 16 05:07:40 iZj6c80ru630hv1fh6ng5cZ pppd[2109]: Using interface ppp0
+Apr 16 05:07:40 iZj6c80ru630hv1fh6ng5cZ pppd[2109]: Connect: ppp0 <--> /dev/pts/1
+Apr 16 05:07:40 iZj6c80ru630hv1fh6ng5cZ pppd[2109]: sent [LCP ConfReq id=0x1 <mru 1200> <asyncmap 0x0> <auth chap MD5> <magic 0x97ce9f19> <pcomp> <accomp>]
+Apr 16 05:07:40 iZj6c80ru630hv1fh6ng5cZ pppd[2109]: rcvd [LCP ConfReq id=0x1 <asyncmap 0x0> <magic 0x69fa2458> <pcomp> <accomp>]
+Apr 16 05:07:40 iZj6c80ru630hv1fh6ng5cZ pppd[2109]: sent [LCP ConfAck id=0x1 <asyncmap 0x0> <magic 0x69fa2458> <pcomp> <accomp>]
+Apr 16 05:07:40 iZj6c80ru630hv1fh6ng5cZ pppd[2109]: rcvd [LCP ConfAck id=0x1 <mru 1200> <asyncmap 0x0> <auth chap MD5> <magic 0x97ce9f19> <pcomp> <accomp>]
+Apr 16 05:07:40 iZj6c80ru630hv1fh6ng5cZ pppd[2109]: sent [LCP EchoReq id=0x0 magic=0x97ce9f19]
+Apr 16 05:07:40 iZj6c80ru630hv1fh6ng5cZ pppd[2109]: sent [CHAP Challenge id=0xe7 <f6d3ce3d83f8d5a9a97577dc414b75a3b5600d850558f3>, name = "l2tpd"]
+Apr 16 05:07:40 iZj6c80ru630hv1fh6ng5cZ pppd[2109]: rcvd [LCP EchoReq id=0x0 magic=0x69fa2458]
+Apr 16 05:07:40 iZj6c80ru630hv1fh6ng5cZ pppd[2109]: sent [LCP EchoRep id=0x0 magic=0x97ce9f19]
+Apr 16 05:07:40 iZj6c80ru630hv1fh6ng5cZ pppd[2109]: rcvd [LCP EchoRep id=0x0 magic=0x69fa2458]
+Apr 16 05:07:40 iZj6c80ru630hv1fh6ng5cZ pppd[2109]: rcvd [CHAP Response id=0xe7 <66f41782c09dd816c93c9bdad738fa27>, name = "helian"]
+Apr 16 05:07:40 iZj6c80ru630hv1fh6ng5cZ pppd[2109]: sent [CHAP Success id=0xe7 "Access granted"]
+Apr 16 05:07:40 iZj6c80ru630hv1fh6ng5cZ pppd[2109]: sent [CCP ConfReq id=0x1 <deflate 15> <deflate(old#) 15> <bsd v1 15>]
+Apr 16 05:07:40 iZj6c80ru630hv1fh6ng5cZ pppd[2109]: sent [IPCP ConfReq id=0x1 <compress VJ 0f 01> <addr 10.26.148.139>]
+Apr 16 05:07:40 iZj6c80ru630hv1fh6ng5cZ pppd[2109]: rcvd [LCP ProtRej id=0x2 80 fd 01 01 00 0f 1a 04 78 00 18 04 78 00 15 03 2f]
+Apr 16 05:07:40 iZj6c80ru630hv1fh6ng5cZ pppd[2109]: Protocol-Reject for 'Compression Control Protocol' (0x80fd) received
+Apr 16 05:07:40 iZj6c80ru630hv1fh6ng5cZ pppd[2109]: rcvd [IPCP ConfReq id=0x1 <addr 0.0.0.0> <ms-dns1 0.0.0.0> <ms-dns2 0.0.0.0>]
+Apr 16 05:07:40 iZj6c80ru630hv1fh6ng5cZ pppd[2109]: sent [IPCP ConfNak id=0x1 <addr 10.26.148.140> <ms-dns1 8.8.8.8> <ms-dns2 8.8.4.4>]
+Apr 16 05:07:40 iZj6c80ru630hv1fh6ng5cZ pppd[2109]: rcvd [IPV6CP ConfReq id=0x1 <addr fe80::6563:181d:6674:c16e>]
+Apr 16 05:07:40 iZj6c80ru630hv1fh6ng5cZ pppd[2109]: Unsupported protocol 'IPv6 Control Protocol' (0x8057) received
+Apr 16 05:07:40 iZj6c80ru630hv1fh6ng5cZ pppd[2109]: sent [LCP ProtRej id=0x2 80 57 01 01 00 0e 01 0a 65 63 18 1d 66 74 c1 6e]
+Apr 16 05:07:40 iZj6c80ru630hv1fh6ng5cZ pppd[2109]: rcvd [IPCP ConfRej id=0x1 <compress VJ 0f 01>]
+Apr 16 05:07:40 iZj6c80ru630hv1fh6ng5cZ pppd[2109]: sent [IPCP ConfReq id=0x2 <addr 10.26.148.139>]
+Apr 16 05:07:40 iZj6c80ru630hv1fh6ng5cZ pppd[2109]: rcvd [IPCP ConfReq id=0x2 <addr 10.26.148.140> <ms-dns1 8.8.8.8> <ms-dns2 8.8.4.4>]
+Apr 16 05:07:40 iZj6c80ru630hv1fh6ng5cZ pppd[2109]: sent [IPCP ConfAck id=0x2 <addr 10.26.148.140> <ms-dns1 8.8.8.8> <ms-dns2 8.8.4.4>]
+Apr 16 05:07:40 iZj6c80ru630hv1fh6ng5cZ pppd[2109]: rcvd [IPCP ConfAck id=0x2 <addr 10.26.148.139>]
+Apr 16 05:07:40 iZj6c80ru630hv1fh6ng5cZ pppd[2109]: found interface eth0 for proxy arp
+Apr 16 05:07:40 iZj6c80ru630hv1fh6ng5cZ pppd[2109]: local  IP address 10.26.148.139
+Apr 16 05:07:40 iZj6c80ru630hv1fh6ng5cZ pppd[2109]: remote IP address 10.26.148.140
+Apr 16 05:07:40 iZj6c80ru630hv1fh6ng5cZ pppd[2109]: Script /etc/ppp/ip-up started (pid 2135)
+Apr 16 05:07:40 iZj6c80ru630hv1fh6ng5cZ pppd[2109]: Script /etc/ppp/ip-up finished (pid 2135), status = 0x0
